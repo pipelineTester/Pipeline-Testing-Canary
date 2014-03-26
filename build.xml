@@ -6,25 +6,35 @@
   <property name="source" value="1.5" />
   <property name="warname" value="${ant.project.name}.war" />
   
+  <property name="src.dir" value="src" />
+  <property name="lib.dir" value="lib" />
+  <property name="build.dir" value="build" />
+  <property name="classes.dir" value="${build.dir}/classes" />
+  <property name="dist.dir" value="dist" />
+  
   <path id="classpathDir">
-    <pathelement location="bin" />
-    <pathelement location="lib/servlet-api-2.5.jar" />
+    <pathelement location="${classes.dir}" />
+    <fileset dir="${lib.dir}">
+        <include name="**/*.jar" />
+    </fileset>
   </path>
   
   <target name="init">
-    <mkdir dir="bin" />
-    <copy includeemptydirs="false" todir="bin">
+    <mkdir dir="${classes.dir}" />
+    <mkdir dir="${dist.dir}" />
+    <copy includeemptydirs="false" todir="${classes.dir}">
       <fileset dir="src">
         <exclude name="**/*.java" />
       </fileset>
     </copy>
-    <copy includeemptydirs="false" todir="bin">
+    <copy includeemptydirs="false" todir="${build.dir}">
       <fileset dir="WebContent" />
     </copy>
   </target>
   
   <target name="clean">
-    <delete dir="bin" />
+    <delete dir="${build.dir}" />
+    <delete dir="${dist.dir}" />
   </target>
   
   <target name="build" depends="build-project,build-war" />
@@ -33,14 +43,14 @@
   
   <target name="build-project" depends="init">
     <echo message="${ant.project.name}: ${ant.file}" />
-    <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}" includeantruntime="false">
+    <javac debug="true" debuglevel="${debuglevel}" destdir="${classes.dir}" source="${source}" target="${target}" includeantruntime="false">
       <src path="src" />
       <classpath refid="classpathDir" />
     </javac>
   </target>
   
   <target name="build-war" depends="build-project">
-    <war destfile="${warname}" basedir="bin" />
+    <war destfile="${dist.dir}/${warname}" basedir="${build.dir}" />
   </target>
 
 </project>
