@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="build" name="%PROJECT%">
+<project basedir="." default="build" name="GitHub1">
     
   <property name="debuglevel" value="source,lines,vars" />
   <property name="target" value="1.5" />
@@ -46,6 +46,7 @@
     <echo message="URL: ${env.url}" />
     <echo message="Username: ${env.user.name}" />
     <echo message="Password: ${env.user.password}" />
+    <echo message="Secret Key: ${env.secret.key}" />
     <javac debug="true" debuglevel="${debuglevel}" destdir="bin" source="${source}" target="${target}" includeantruntime="false">
       <src path="src" />
     	<classpath>
