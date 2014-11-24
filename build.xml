@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project basedir="." default="build" name="GitHub1">
+<project basedir="." default="build" name="JavaGitHub">
     
   <property name="debuglevel" value="source,lines,vars" />
   <property name="target" value="1.5" />

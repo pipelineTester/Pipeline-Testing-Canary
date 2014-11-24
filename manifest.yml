@@ -1,0 +1,7 @@
+---
+applications:
+- name: JavaGitHub
+  path: JavaGitHub.war
+  host: pipeline-JavaGitHub
+  instances: 1
+  memory: 256M
