@@ -16,10 +16,3 @@ eye-catching graphic.
 Finally, consider defining a timeline and work items on the "Current Work" tab 
 to give interested developers a sense of your cadence and upcoming enhancements.
 
----
-
-Please work!!
-
----
-
-Jenkins was here
